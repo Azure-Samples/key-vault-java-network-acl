@@ -69,10 +69,27 @@ public class NetworkAclSample {
                     .allowSecretAllPermissions()
                     .attach()
                 .withDeploymentDisabled()
-                .withNetworkAcls(networkRuleSet)
+                .withBypass(NetworkRuleBypassOptions.AZURE_SERVICES)
+                .withDefaultAction(NetworkRuleAction.DENY)
+                .withAccessFromIpAddress("0.0.0.0/0")
                 .create();
 
+        Vault vault2 = azure.vaults().define(SdkContext.randomResourceName("vault-sample", 20))
+                        .withRegion(Region.US_WEST)
+                        .withExistingResourceGroup(rgName)
+                        .defineAccessPolicy()
+                            .forObjectId(AZURE_OBJECT_ID)
+                            .allowSecretAllPermissions()
+                            .attach()
+                        .withDeploymentDisabled()
+                        .withAccessFromAzureServices() //essentially sets Bypass to AZURE_SERVICES
+                        .withAccessFromSelectedNetworks() //Sets default Action to Deny
+                        .withAccessFromIpAddress("0.0.0.0/0")
+                        .create();
+
+
         System.out.println("Created vault " + vault.vaultUri());
+        System.out.println("Created vault " + vault2.vaultUri());
 
 
     }
