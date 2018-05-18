@@ -49,16 +49,16 @@ public class NetworkAclSample {
         //If you have a virtual network, set it here.
         String vnetId = "";
         List<VirtualNetworkRule> rules = new ArrayList<>();
-        rules.add(new VirtualNetworkRule().withId(vnetId));
+//        rules.add(new VirtualNetworkRule().withId(vnetId));
 
         //Setting the network rules
         NetworkRuleSet networkRuleSet = new NetworkRuleSet()
                 .withBypass(NetworkRuleBypassOptions.AZURE_SERVICES)// Allows bypass of network ACLs from Azure services. Valid: 'AzureServices' or 'None'
                 .withDefaultAction(NetworkRuleAction.DENY) // Action to take if access attempt does not match any rule. 'Allow' or 'Deny'
                 //IP rules
-                .withIpRules(new ArrayList<>(Arrays.asList(new IPRule().withValue("0.0.0.0/0")))); // Allow access from all IPv4 addresses
+                .withIpRules(new ArrayList<>(Arrays.asList(new IPRule().withValue("0.0.0.0/0")))) // Allow access from all IPv4 addresses
                 //Virtual network rules (Allows access to Azure Virtual Networks by their Azure Resource ID).
-            // .withVirtualNetworkRules(rules);
+                .withVirtualNetworkRules(rules);
 
         //Create a new sample vault with
         Vault vault = azure.vaults().define(vaultName)
