@@ -4,7 +4,7 @@ platforms: java
 author: tiffanyachen
 ---
 
-# Vnet/IP ACL sample for Azure Key Vault using the Azure Node SDK
+# Vnet/IP ACL sample for Azure Key Vault using the Azure Java SDK
 
 This sample repo demonstrates how to create an Azure Key Vault with access limited to specific IP ranges and Azure Virtual Networks.
 
