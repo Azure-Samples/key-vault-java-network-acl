@@ -8,6 +8,12 @@ author: tiffanyachen
 
 This sample repo demonstrates how to create an Azure Key Vault with access limited to specific IP ranges and Azure Virtual Networks.
 
+## Prerequisites
+- Java 1.7+
+- An Azure Service Principal, through [Azure CLI](http://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal-cli/),
+[PowerShell](http://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/)
+or [Azure Portal](http://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/).
+
 ## Running the samples
 1. If not installed, install [Java](https://www.java.com/en/download/help/download_options.xml).
 
