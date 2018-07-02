@@ -25,10 +25,10 @@ public class NetworkAclSample {
     protected static Azure azure;
 
     protected static final Region VAULT_REGION = Region.US_WEST;
-    protected static final String AZURE_CLIENT_ID = System.getenv("AZURE_CLIENT_ID");
-    protected static final String AZURE_OBJECT_ID = System.getenv("AZURE_OBJECT_ID");
-    protected static final String AZURE_CLIENT_SECRET = System.getenv("AZURE_CLIENT_SECRET");
-    protected static final String AZURE_TENANT_ID = System.getenv("AZURE_TENANT_ID");
+    protected static final String AZURE_CLIENT_ID = System.getProperty("AZURE_CLIENT_ID");
+    protected static final String AZURE_OBJECT_ID = System.getProperty("AZURE_OBJECT_ID");
+    protected static final String AZURE_CLIENT_SECRET = System.getProperty("AZURE_CLIENT_SECRET");
+    protected static final String AZURE_TENANT_ID = System.getProperty("AZURE_TENANT_ID");
 
 
     static {
